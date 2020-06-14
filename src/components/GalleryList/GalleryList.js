@@ -1,4 +1,5 @@
 import React from "react";
+import GalleryItem from "../GalleryItem/GalleryItem";
 
 class GalleryList extends React.Component {
   state = {};
@@ -6,7 +7,7 @@ class GalleryList extends React.Component {
   render() {
     return (
       <div className="gallery-list">
-        <p>Items go here</p>
+        <GalleryItem />
       </div>
     );
   }
