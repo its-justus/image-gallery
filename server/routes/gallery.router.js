@@ -5,6 +5,22 @@ const pool = require('../modules/pool.js');
 
 // DO NOT MODIFY THIS FILE FOR BASE MODE
 
+// POST Route
+router.post('/', (req, res) => {
+	const queryValues = [req.body.path, req.body.description];
+	const queryText = `INSERT INTO gallery_items (path, description) VALUES ($1, $2);`;
+
+	pool.query(queryText, queryValues)
+			.then((response) => {
+				console.log("Successful POST");
+				res.status(201).send(response.rows[0]);
+			})
+			.catch((error) => {
+				console.log(error);
+				res.sendStatus(500);
+			})
+})
+
 // PUT Route
 router.put('/like/:id', (req, res) => {
     console.log(req.params);

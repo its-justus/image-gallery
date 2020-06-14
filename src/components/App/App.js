@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import GalleryList from "../GalleryList/GalleryList";
+import AddImageForm from "../AddImageForm/AddImageForm";
 
 class App extends Component {
   render() {
@@ -10,6 +11,7 @@ class App extends Component {
           <h1 className="App-title">Gallery of my life</h1>
         </header>
         <br />
+				<AddImageForm />
         <GalleryList />
       </div>
     );
