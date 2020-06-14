@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import './GalleryItem.css';
 
 class GalleryItem extends React.Component {
   state = {
@@ -28,13 +29,15 @@ class GalleryItem extends React.Component {
     return (
       <div className="gallery-item">
         {this.state.showDescription ? (
-          <p onClick={this.toggleDescription}>{image.description}</p>
+          <p onClick={this.toggleDescription}>
+            {image.description}
+          </p>
         ) : (
           <img
             src={image.path}
-						alt={image.description}
-						height={100}
-						width={100}
+            alt={image.description}
+            height={100}
+            width={100}
             onClick={this.toggleDescription}
           />
         )}
