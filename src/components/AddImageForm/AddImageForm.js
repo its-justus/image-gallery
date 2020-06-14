@@ -35,6 +35,7 @@ class AddImageForm extends React.Component {
   };
 
   render() {
+		console.log('AddImageForm.render()');
     return (
       <form className="add-image-form" onSubmit={this.addImage}>
         <input
