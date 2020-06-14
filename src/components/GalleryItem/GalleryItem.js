@@ -32,7 +32,9 @@ class GalleryItem extends React.Component {
         ) : (
           <img
             src={image.path}
-            alt={image.description}
+						alt={image.description}
+						height={100}
+						width={100}
             onClick={this.toggleDescription}
           />
         )}
