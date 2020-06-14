@@ -1,20 +1,20 @@
 import React from "react";
 
 class GalleryItem extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-			lovesCount: 0
-		};
-  }
+	state = {
+		likes: this.props.image.likes
+	};
 
-  render() {
+	render() {
+		const {image} = this.props;
+		console.log(this.state);
 		return (
 			<div className="gallery-item">
-				Item data goes here
+				<img src={image.path} alt={image.description} />
 			</div>
 		);
 	}
 }
+
 
 export default GalleryItem;
