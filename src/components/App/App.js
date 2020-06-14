@@ -1,37 +1,49 @@
 import React, { Component } from "react";
-import axios from 'axios';
+import axios from "axios";
 import "./App.css";
 import GalleryList from "../GalleryList/GalleryList";
 import AddImageForm from "../AddImageForm/AddImageForm";
 
+/*
+Some general notes: I passed a "refresh" function to components that handle their own data, but needed 
+a way to let the app know that it should refresh it's data, since that is the only way to retrieve the 
+new data from the server. is this ideal? probably not. it works well enough for a simple app like this, but a more 
+complicated architecture would result in obscenely complicated signalling and passing
+of properties. I'm hoping Redux/Recoil provides the answer to this issue, and as such 
+I'm going to leave this app the way it is.  
+*/
+
 class App extends Component {
-	state = {};
+  state = {};
 
-	componentDidMount() {
-		this.getGallery();
-	}
+  componentDidMount() {
+    this.getGallery();
+  }
 
-	getGallery() {
-		console.log('Start getGallery');
-		axios.get('/gallery/')
-			.then((response) => {
-				console.log("Get success", response.data);
-				this.setState({items: response.data});
-			})
-			.catch((error) => {
-				console.log(error);
-			})
-	}
+  getGallery() {
+    axios
+      .get("/gallery/")
+      .then((response) => {
+        this.setState({ items: response.data });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   render() {
+    console.log("App.render()");
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Gallery of my life</h1>
         </header>
         <br />
-				<AddImageForm refresh={() => this.getGallery()} />
-        <GalleryList items={this.state.items} />
+        <AddImageForm refresh={() => this.getGallery()} />
+        <GalleryList
+          items={this.state.items}
+          refresh={() => this.getGallery()}
+        />
       </div>
     );
   }
