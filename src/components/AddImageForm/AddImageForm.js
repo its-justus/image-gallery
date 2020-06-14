@@ -26,6 +26,8 @@ class AddImageForm extends React.Component {
 			.then((response) => {
 				// reset state
 				this.setState({path: '', description: '', alert: false});
+				// refresh the app
+				this.props.refresh();
 			})
 			.catch((error) => {
 				console.log(error);
