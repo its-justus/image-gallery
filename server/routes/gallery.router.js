@@ -9,13 +9,13 @@ const pool = require('../modules/pool.js');
 router.put('/like/:id', (req, res) => {
     console.log(req.params);
 		
-		const queryText = "UPDATE gallery_items SET likes = likes + 1 WHERE id=$1;";
+		const queryText = "UPDATE gallery_items SET likes = likes + 1 WHERE id=$1 RETURNING likes;";
 		const queryValues = [req.params.id];
 
 		pool.query(queryText, queryValues)
 			.then((response) => {
 				console.log("Successful put on id:", req.params.id);
-				res.sendStatus(201);
+				res.status(201).send(response.rows[0]);
 			})
 			.catch((error) => {
 				console.log(error);

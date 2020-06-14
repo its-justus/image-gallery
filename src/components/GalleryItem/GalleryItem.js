@@ -12,8 +12,9 @@ class GalleryItem extends React.Component {
     axios
       .put(`/gallery/like/${this.props.image.id}`)
       .then((response) => {
-        console.log("Put success!", this.props.image.id);
-        this.setState({ likes: this.state.likes + 1 });
+				console.log("Put success!", this.props.image.id);
+				// current likes is sent back from the server
+        this.setState({ likes: response.data.likes });
       })
       .catch((error) => {
         console.log(error);
