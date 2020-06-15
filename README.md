@@ -1,9 +1,28 @@
-# Project Name
+# Image Gallery
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+*Duration: 1 day*
 
-## Description
+Image Gallery is a simple image gallery app. It allows you to add, delete, and like images.
 
-Your project description goes here. What problem did you solve? How did you solve it?
+## Installation
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+Fork and clone the repository to your computer. Use npm to install the dependencies
+```bash
+npm install
+```
+Create a database following the instructions in database.sql.
+
+Start the server and client server by running the scripts.
+```bash
+npm run server
+npm run client
+``` 
+Open a browser and navigate to localhost:3000
+
+## Usage
+
+To add an image, enter an image url in the image url text field. You may add an optional description. Then press the submit button.
+
+To like a photo, click the heart icon below the image.
+
+To delete a photo, click the garbage can icon below the image.
