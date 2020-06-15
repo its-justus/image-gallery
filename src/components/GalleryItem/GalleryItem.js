@@ -1,6 +1,9 @@
 import React from "react";
 import axios from "axios";
 import "./GalleryItem.css";
+import { Paper, IconButton, Grid, Box } from "@material-ui/core";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 class GalleryItem extends React.Component {
   state = {
@@ -39,28 +42,44 @@ class GalleryItem extends React.Component {
     console.log("GalleryItem.render()");
     const { image } = this.props;
     return (
-      <div className="gallery-item">
-        {this.state.showDescription ? (
-          <p onClick={this.toggleDescription}>{image.description}</p>
-        ) : (
-          <img
-            src={image.path}
-            alt={image.description}
-            height={100}
-            width={100}
-            onClick={this.toggleDescription}
-          />
-        )}
-        <br />
-        <button type="button" onClick={this.addLike}>
-          Love it!
-        </button>
-        <button type="button" onClick={this.deleteImage}>
-          X
-        </button>
-        <br />
-        <>{this.state.likes} people love this!</>
-      </div>
+      <Grid container justify="center">
+        <Paper elevation={3}>
+          <Box width={140} height={160}>
+            <Grid container justify="center">
+              <Grid item xs={12}>
+                {this.state.showDescription ? (
+                  <Box
+                    height={100}
+                    width={100}
+                    onClick={this.toggleDescription}
+                  >
+                    {image.description}
+                  </Box>
+                ) : (
+                  <img
+                    src={image.path}
+                    alt={image.description}
+                    height={100}
+                    width={100}
+                    onClick={this.toggleDescription}
+                  />
+                )}
+              </Grid>
+              <Grid item xs={7}>
+                <IconButton onClick={this.addLike}>
+                  <FavoriteIcon />
+                  <>{this.state.likes}</>
+                </IconButton>
+              </Grid>
+              <Grid item xs={5}>
+                <IconButton onClick={this.deleteImage}>
+                  <DeleteIcon />
+                </IconButton>
+              </Grid>
+            </Grid>
+          </Box>
+        </Paper>
+      </Grid>
     );
   }
 }
