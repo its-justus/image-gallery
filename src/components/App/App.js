@@ -37,16 +37,16 @@ class App extends Component {
     console.log("App.render()");
     return (
       <div className="App">
-        <Grid container spacing={2}>
+        <Grid container spacing={2} justify="center">
           <Grid item xs={12}>
             <header className="App-header">
               <h1 className="App-title">Gallery of my life</h1>
             </header>
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={10}>
             <AddImageForm refresh={() => this.getGallery()} />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={10}>
             <GalleryList
               items={this.state.items}
               refresh={() => this.getGallery()}

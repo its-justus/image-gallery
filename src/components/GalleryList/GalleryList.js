@@ -11,17 +11,17 @@ class GalleryList extends React.Component {
     // return list if there are items to render
     return (
       <div className="gallery-list">
-        <Grid container spacing={3}>
-				{this.props.items.map((item) => (
-          <Grid item xs={6} sm={4} md={3} lg={2} key={item.id}>
-						<GalleryItem 
-							image={item}
-							key={item.id}
-							refresh={this.props.refresh}
-						/>
-					</Grid>
-        ))}
-				</Grid>
+        <Grid container spacing={2} justify="space-evenly">
+          {this.props.items.map((item) => (
+            <Grid item xs={6} sm={4} md={3} lg={2} key={item.id}>
+              <GalleryItem
+                image={item}
+                key={item.id}
+                refresh={this.props.refresh}
+              />
+            </Grid>
+          ))}
+        </Grid>
       </div>
     );
   }
