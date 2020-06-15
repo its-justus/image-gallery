@@ -4,6 +4,8 @@ import "./App.css";
 import GalleryList from "../GalleryList/GalleryList";
 import AddImageForm from "../AddImageForm/AddImageForm";
 
+import Grid from "@material-ui/core/Grid";
+
 /*
 Some general notes: I passed a "refresh" function to components that handle their own data, but needed 
 a way to let the app know that it should refresh it's data, since that is the only way to retrieve the 
@@ -35,15 +37,22 @@ class App extends Component {
     console.log("App.render()");
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Gallery of my life</h1>
-        </header>
-        <br />
-        <AddImageForm refresh={() => this.getGallery()} />
-        <GalleryList
-          items={this.state.items}
-          refresh={() => this.getGallery()}
-        />
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <header className="App-header">
+              <h1 className="App-title">Gallery of my life</h1>
+            </header>
+          </Grid>
+          <Grid item xs={12}>
+            <AddImageForm refresh={() => this.getGallery()} />
+          </Grid>
+          <Grid item xs={12}>
+            <GalleryList
+              items={this.state.items}
+              refresh={() => this.getGallery()}
+            />
+          </Grid>
+        </Grid>
       </div>
     );
   }
