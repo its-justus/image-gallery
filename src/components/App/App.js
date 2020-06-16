@@ -38,11 +38,11 @@ class App extends Component {
   }
 
   render() {
-		console.log("App.render()");
+    console.log("App.render()");
     return (
       <Router>
         <div className="App">
-					<Route path='/' component={GalleryMenu} />
+          <Route path="/" component={GalleryMenu} />
           <br />
           <Grid container spacing={2} justify="center">
             <Switch>
