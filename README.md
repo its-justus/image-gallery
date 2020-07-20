@@ -30,3 +30,12 @@ To add an image, enter an image url in the image url text field. You may add an 
 To like a photo, click the heart icon below the image.
 
 To delete a photo, click the garbage can icon below the image.
+
+## Made With
+
+* React
+* pg (Postgres)
+* Express
+* Node.js
+* Axios
+* Material UI
