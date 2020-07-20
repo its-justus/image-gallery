@@ -4,6 +4,10 @@
 
 Image Gallery is a simple image gallery app. It allows you to add, delete, and like images.
 
+## Screenshots
+
+![screenshot](/images/screenshot.png)
+
 ## Installation
 
 Fork and clone the repository to your computer. Use npm to install the dependencies
